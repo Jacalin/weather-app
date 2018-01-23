@@ -21,7 +21,45 @@ $(function() {
 
         var location = data.name;
 
-        var icon = data.weather[0].icon;
+        var icon;
+
+        var idString = String(data.weather[0].id).split("")[0]
+
+        var idNum = parseInt(idString);
+
+        if(data.dt < data.sys.sunset){
+
+          switch (idNum) {
+            case 2:
+                icon = "./imgs/11d.png";
+                break;
+            case 3:
+                icon = "./imgs/09d.png";
+                break;
+            case 5:
+                icon = "./imgs/10d.png";
+                break;
+            case 6:
+                icon = "./imgs/13d.png";
+                break;
+            case 7:
+                icon = "./imgs/50d.png";
+                break;
+            case 8:
+                icon = "./imgs/01d.png";
+                break;
+          }
+
+        }else{
+          switch (idNum) {
+            case 8:
+                icon = "./imgs/01n.png";
+                break;
+          }
+        }
+
+
+        console.log(icon);
 
         console.log(data);
 
